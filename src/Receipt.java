@@ -13,7 +13,7 @@ public class Receipt {
 //  private LineItem[] lineItems = new LineItem[0];
     private Customer customer;
     private FakeDatabase db;
-    List<String> lItem = new ArrayList<String>();
+    List<LineItem> lineItems = new ArrayList<LineItem>();
     
     public Receipt() {
     }
@@ -50,15 +50,15 @@ public class Receipt {
      */
     public void addProductToSale(String prodID, int prodQty){
         LineItem lineItem = new LineItem(prodID, prodQty);
-        addToArray(lineItem);
+        lineItems.add(lineItem);
     }
     
-    private void addToArray(LineItem item) {
-        LineItem[] tempItems = new LineItem[lineItems.length + 1];
-        System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
-        tempItems[lineItems.length] = item;
-        lineItems = tempItems;
-    }
+//    private void addToArray(LineItem item) {
+//        LineItem[] tempItems = new LineItem[lineItems.length + 1];
+//        System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
+//        tempItems[lineItems.length] = item;
+//        lineItems = tempItems;
+//    }
     
     public String getCurrentDate() {
         Date date = new Date();
